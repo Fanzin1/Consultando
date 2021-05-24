@@ -1,0 +1,184 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    background-color: #dbdbdb;
+    background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
+}
+
+h4{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 5em;
+    padding-top: 150px;
+}
+
+img{
+    margin-top: 200px!important;
+}
+#title{
+    height: 100vh!important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1980' height='1980' preserveAspectRatio='none' viewBox='0 0 1980 1980'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1153%26quot%3b)' fill='none'%3e%3crect width='1980' height='1980' x='0' y='0' fill='rgba(75%2c 65%2c 185%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c931.401C182.051%2c939.227%2c391.916%2c939.984%2c522.254%2c812.642C651.586%2c686.283%2c612.585%2c473.658%2c649.65%2c296.685C677.86%2c161.993%2c705.363%2c34.695%2c713.95%2c-102.651C724.767%2c-275.679%2c786.276%2c-458.254%2c706.469%2c-612.159C621.454%2c-776.108%2c456.022%2c-897.841%2c277.36%2c-944.6C100.596%2c-990.863%2c-97.692%2c-958.819%2c-253.519%2c-863.406C-395.885%2c-776.235%2c-425.39%2c-588.734%2c-523.917%2c-453.977C-611.767%2c-333.822%2c-743.771%2c-252.671%2c-800.628%2c-115.113C-868.38%2c48.805%2c-935.221%2c232.986%2c-877.129%2c400.571C-817.917%2c571.385%2c-648.84%2c675.345%2c-494.173%2c768.948C-342.761%2c860.581%2c-176.818%2c923.8%2c0%2c931.401' fill='%23312a78'%3e%3c/path%3e%3cpath d='M1980 2768.332C2137.92 2770.763 2310.963 2786.508 2438.014 2692.684 2563.4120000000003 2600.08 2583.3 2426.593 2639.603 2281.2309999999998 2692.376 2144.983 2755.349 2014.331 2757.351 1868.234 2759.598 1704.2640000000001 2746.173 1532.005 2651.706 1397.964 2553.276 1258.3 2401.366 1143.408 2231.786 1122.4969999999998 2068.258 1102.3319999999999 1915.747 1200.5990000000002 1777.444 1290.156 1666.437 1362.038 1603.451 1478.8980000000001 1521.321 1582.5520000000001 1443.347 1680.96 1360.871 1769.675 1307.463 1883.304 1235.807 2035.757 1112.517 2193.183 1158.0839999999998 2355.3559999999998 1203.508 2517.017 1380.915 2603.33 1530.96 2678.721 1670.163 2748.6639999999998 1824.231 2765.934 1980 2768.332' fill='%23867fd2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1153'%3e%3crect width='1980' height='1980' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+}
+
+#login{
+    height: 100vh;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1980' height='1980' preserveAspectRatio='none' viewBox='0 0 1980 1980'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1153%26quot%3b)' fill='none'%3e%3crect width='1980' height='1980' x='0' y='0' fill='rgba(75%2c 65%2c 185%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c931.401C182.051%2c939.227%2c391.916%2c939.984%2c522.254%2c812.642C651.586%2c686.283%2c612.585%2c473.658%2c649.65%2c296.685C677.86%2c161.993%2c705.363%2c34.695%2c713.95%2c-102.651C724.767%2c-275.679%2c786.276%2c-458.254%2c706.469%2c-612.159C621.454%2c-776.108%2c456.022%2c-897.841%2c277.36%2c-944.6C100.596%2c-990.863%2c-97.692%2c-958.819%2c-253.519%2c-863.406C-395.885%2c-776.235%2c-425.39%2c-588.734%2c-523.917%2c-453.977C-611.767%2c-333.822%2c-743.771%2c-252.671%2c-800.628%2c-115.113C-868.38%2c48.805%2c-935.221%2c232.986%2c-877.129%2c400.571C-817.917%2c571.385%2c-648.84%2c675.345%2c-494.173%2c768.948C-342.761%2c860.581%2c-176.818%2c923.8%2c0%2c931.401' fill='%23312a78'%3e%3c/path%3e%3cpath d='M1980 2768.332C2137.92 2770.763 2310.963 2786.508 2438.014 2692.684 2563.4120000000003 2600.08 2583.3 2426.593 2639.603 2281.2309999999998 2692.376 2144.983 2755.349 2014.331 2757.351 1868.234 2759.598 1704.2640000000001 2746.173 1532.005 2651.706 1397.964 2553.276 1258.3 2401.366 1143.408 2231.786 1122.4969999999998 2068.258 1102.3319999999999 1915.747 1200.5990000000002 1777.444 1290.156 1666.437 1362.038 1603.451 1478.8980000000001 1521.321 1582.5520000000001 1443.347 1680.96 1360.871 1769.675 1307.463 1883.304 1235.807 2035.757 1112.517 2193.183 1158.0839999999998 2355.3559999999998 1203.508 2517.017 1380.915 2603.33 1530.96 2678.721 1670.163 2748.6639999999998 1824.231 2765.934 1980 2768.332' fill='%23867fd2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1153'%3e%3crect width='1980' height='1980' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+}
+
+.geral{
+    background-color: #dbdbdb;
+    background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
+}
+
+.teste{
+    background-color: #dbdbdb;
+    background-image: url("https://www.transparenttextures.com/patterns/gplay.png")!important;
+}
+
+
+
+
+.form-body{
+    margin-top: 150px;
+    width: 550px; 
+    padding: 25px;
+    background-color: rgb(230, 230, 230); 
+    margin-left: auto; 
+    margin-right: auto; 
+    border-radius: 5px;
+}
+
+.navtop{
+    background-color: #4B41B9;
+}
+
+
+
+#sidebar-text{
+    display: inline-block;
+    width: 0px;
+    height: 94.3vh;
+    background-color:#5b50cf;
+    margin-left: 0px;
+    position: absolute;
+}
+.icon{
+    font-size: 25px;
+
+    padding: 1px 9px;
+    background-color: rgb(82, 111, 238);
+    display: inline-block;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.icon:hover{
+    background:#4B41B9;
+
+}
+
+#sidebar-text ul li{
+    list-style: none;
+    font-size: 21px;
+    padding: 15px 0;
+    z-index: 9999;
+}
+
+#menuLista{
+    display: none;
+}
+
+#close{
+    display: none;
+}
+
+#open{
+    margin-left: 5px;
+    margin-top: 29.5px;
+}
+
+#sidebar-text ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+#sidebar-text ul li a:hover{
+    color: rgb(148, 146, 146);
+}
+
+#sidebar-text ul li:hover{
+   border-bottom: 2px solid #FFF;
+}
+
+
+.padrao{
+    border: 5px solid #dbdbdb;
+    padding: 25px 15px; 
+    border-radius: 10px;
+}
+
+.botao{
+    text-decoration: none;
+    padding: 1px 15px; 
+    background-color: #4B41B9; 
+    color: white; 
+    float: right; 
+    border-radius: 50%; 
+    font-size: 32px;
+}
+
+.botao:hover{
+    background-color: rgb(50, 50, 189); 
+    text-decoration: none;
+    color: white;
+}
+
+/*************************************** Media Querys *************************/
+
+@media (max-width: 768px){
+    .main-image{
+        display: none!important;
+    }
+
+    .geral{
+        min-height: 100%;
+    }
+
+}
+
+@media (max-width: 425px){
+    .form-body{
+        width: 350px
+    }
+}
+
+@media (max-width: 375px){
+    .main-text{
+        font-size: 78px;
+        margin-top: -35px!important;
+    }
+
+    .text-box{
+        width: 350px!important;
+    }
+}
+
+@media (max-width: 320px){
+    .main-text{
+        font-size: 62px;
+        margin-top: -35px!important;
+    }
+
+    .text-box{
+        width: 280px!important;
+    }
+
+    @media (max-width: 425px){
+        .form-body{
+            width: 300px
+        }
+    }
+}

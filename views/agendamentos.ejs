@@ -1,0 +1,41 @@
+<%- include("partials/header") %>
+
+<section class="geral" style="height: 100vh;">
+    <%- include("partials/sidemenu") %>
+
+    <div class="container-fluid" style="padding: 25px 65px;">
+        <div class="row">
+            <div class="col-lg-12 " style="background-color: rgb(241, 241, 241); padding: 25px; border-radius: 15px; margin-top: 100px;">
+                <h2 style="float: left; display: inline" class="font-weight-bold">Agendamentos</h2>
+                <a class="mb-2 botao" href="/addagen">+</a>
+                <table class="table table-responsive-md table-hover text-center">
+                    <thead>
+                        <tr>
+                            <th>Paciente</th>
+                            <th>Telefone</th>
+                            <th>Medico</th>
+                            <th>Motivo</th>
+                            <th>Data</th>
+                            <th>Hora</th>
+                            <th>Ver mais</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% agendamentos.forEach(function(agendamento){ %>
+                            <tr>
+                                <td><%=agendamento.paciente%></td>
+                                <td><%=agendamento.telefone%></td>
+                                <td><%=agendamento.medico%></td>
+                                <td><%=agendamento.motivo%></td>
+                                <td><%=agendamento.data%></td>
+                                <td><%=agendamento.hora%></td>
+                                <td><a href="/agendamentos/<%=agendamento.id%>">+</a></td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<%- include("partials/footer") %>

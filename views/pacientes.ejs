@@ -1,0 +1,37 @@
+<%- include("partials/header") %>
+
+<section class="geral" style="height: 100vh;">
+    <%- include("partials/sidemenu") %>
+
+    <div class="container-fluid" style="padding: 25px 65px;">
+        <div class="row">
+            <div class="col-lg-12 " style="background-color: rgb(241, 241, 241); padding: 25px; border-radius: 15px; margin-top: 100px;">
+                <h2 style="float: left; display: inline" class="font-weight-bold">Pacientes</h2>
+                <a class="mb-2 botao" href="/addpac">+</a>
+                <table class="table table-responsive-md table-hover text-center">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Endereço</th>
+                            <th>Telefone</th>
+                            <th>Data de nascimento</th>
+                            <th>Ver mais</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%  pacientes.forEach(function(paciente){ %>
+                            <tr>
+                                <td><%=paciente.nome%></td>
+                                <td><%=paciente.rua%>, <%=paciente.numero%></td>
+                                <td><%=paciente.telefone%></td>
+                                <td><%=paciente.nascimento%></td>
+                                <td><a href="/pacientes/<%=paciente.id%>">+</a></td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<%- include("partials/footer") %>

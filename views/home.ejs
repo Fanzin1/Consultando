@@ -1,0 +1,191 @@
+<%- include("partials/header") %>
+
+
+
+<section class="geral" style="height: 100vh;">
+    <%- include("partials/sidemenu") %>
+    
+    <div class="container-fluid"  style="padding: 25px 65px">
+        <div class="row text-white">
+            <div class="col-lg-3 padrao" style="background-color: rgb(123, 154, 212);">
+                <h5 class="font-weight-bold">Novos cadastros</h5>
+                <p class="mb-0"><span class="mr-2 font-weight-bold">0</span>Hoje</p>
+                <p class="mb-0"><span class="mr-2 font-weight-bold">0</span>Esta semana</p>
+                <p class="mb-0"><span class="mr-2 font-weight-bold">0</span>Este mês</p>
+            </div>
+
+            <div class="col-lg-3 padrao" style="background-color: rgb(26, 199, 133)">
+                <h5 class="font-weight-bold mb-2">Consultas hoje</h5>
+                <span style="font-size: 26px;" class="mr-2 font-weight-bold ">0</span>
+                <p class="mb-0">Consultas</p>
+            </div>
+
+            <div class="col-lg-3 padrao" style="background-color: rgb(67, 73, 163);">
+                <h5 class="font-weight-bold mb-2">Aguardando agendamento</h5>
+                <span style="font-size: 26px;" class="mr-2 font-weight-bold ">0</span>
+                <p class="mb-0">Pacientes</p>   
+            </div>
+
+            <div class="col-lg-3 padrao" style="background-color: rgb(60, 153, 88);">
+                <h5 class="font-weight-bold mb-2">Vagas disponíveis</h5>
+                <span style="font-size: 26px;" class="mr-2 font-weight-bold ">0</span>
+                <p class="mb-0">Vagas</p>   
+            </div>
+
+        </div>
+    </div>
+    <% empresa.forEach(function(nome){ %> 
+    <div class="container-fluid" style="padding: 25px 65px">
+        <div class="row">
+            <div class="col-lg-4 padrao" style="padding: 25px; background-color:rgb(241, 241, 241);">
+                <div style="height: 80px; width: 80px; border-radius: 50px; background-color: rgb(218, 218, 218); margin-left: auto; margin-right: auto;" >
+                    <i class="fas fa-users" style="font-size: 4em; margin-top: 10px;"></i>
+                </div>
+                <h3 class="font-weight-bold" style="text-align: center;" ><%=nome.empresa%></h3>
+
+                <div class="row mt-3" style="text-align: center;">
+                    <div class="col-lg-6">
+                        <p> <span class="font-weight-bold">0&nbsp</span> Clientes Ativos</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <p> <span class="font-weight-bold">0&nbsp</span>Total Clientes</p>
+                    </div>
+                </div>
+
+                <div class="row mt-3" style="text-align: center;">
+                    <div class="col-lg-6">
+                        <p> <span class="font-weight-bold">0&nbsp</span>Pagamentos atrasados</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <p> <span class="font-weight-bold">0&nbsp</span>Pagamentos pendentes</p>
+                    </div>
+                </div>
+
+                <div class="row mt-3" style="text-align: center;">
+                    <div class="col-lg-6">
+                        <p> <span class="font-weight-bold">0&nbsp</span>Consultas concretizadas</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <p> <span class="font-weight-bold">0&nbsp</span>Consultas em andamento</p>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+            <div class="col-lg-8 padrao" style="background-color: rgb(241, 241, 241); padding: 25px; border-radius: 15px;">
+                <table class="table table-responsive-md table-hover">
+                    <thead>
+                        <tr>
+                            <th>Paciente</th>
+                            <th>Serviço</th>
+                            <th>Profissional</th>
+                            <th>Data</th>
+                            <th>Hora</th>
+                            <th>Pagamento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>João Pedro</td>
+                            <td>1º Consulta</td>
+                            <td>João Pedro</td>
+                            <td>20/05/2021</td>
+                            <td>13:50</td>
+                            <td>Antecipado</td>
+                        </tr>
+                        <tr>
+                            <td>João Pedro</td>
+                            <td>1º Consulta</td>
+                            <td>João Pedro</td>
+                            <td>20/05/2021</td>
+                            <td>13:50</td>
+                            <td>Antecipado</td>
+                        </tr>
+                        <tr>
+                            <td>João Pedro</td>
+                            <td>1º Consulta</td>
+                            <td>João Pedro</td>
+                            <td>20/05/2021</td>
+                            <td>13:50</td>
+                            <td>Antecipado</td>
+                        </tr>
+                        <tr>
+                            <td>João Pedro</td>
+                            <td>1º Consulta</td>
+                            <td>João Pedro</td>
+                            <td>20/05/2021</td>
+                            <td>13:50</td>
+                            <td>Antecipado</td>
+                        </tr>
+                        <tr>
+                            <td>João Pedro</td>
+                            <td>1º Consulta</td>
+                            <td>João Pedro</td>
+                            <td>20/05/2021</td>
+                            <td>13:50</td>
+                            <td>Antecipado</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+        
+    </div>
+
+</section>
+
+<section>
+    
+</section>
+
+<script>
+    
+    var barra = document.getElementById("sidebar-text");
+    var lista = document.getElementById("menuLista");
+    var fechar = document.getElementById("close");
+
+    function mostrar(){
+        var ml = 0;
+
+        barra.style.padding = "15px"
+        barra.style.marginLeft = 0;
+        var intervalo = setInterval(function(){
+            console.log(ml)
+            if(ml < 250){
+                ml = ml + 10;
+                barra.style.width = ml + "px";
+            }
+            else{
+                clearInterval(intervalo);
+                lista.style.display = "inline-block"
+                fechar.style.display = "inline-block"
+            }
+        }, 10);
+
+        document.getElementById("open").style.display = "none";
+    }
+
+    function terminar(){
+        fechar.style.display = "none";
+        lista.style.display = "none";
+        var ml = 250;
+        barra.style.marginLeft = 0;
+        var intervalo = setInterval(function(){
+            console.log(ml)
+            if(ml >= 0){
+                ml = ml - 10;
+                console.log(ml)
+                barra.style.width = ml + "px";
+            }
+            else{
+                clearInterval(intervalo);
+                document.getElementById("open").style.display = "inline-block";
+                barra.style.padding = 0;
+            }
+        }, 10);
+    }
+</script>
+
+
+<%- include("partials/footer") %>

@@ -1,0 +1,100 @@
+<%- include("partials/header") %>
+
+<section class="geral" style="height: 100vh;">
+    <%- include("partials/sidemenu") %>
+
+    <div class="container-fluid" style="padding: 25px 65px;">
+        <div class="row" style="margin-top: 100px;">
+            <div class="col-lg-12"style="background-color: rgb(241, 241, 241); padding: 25px; border-radius: 15px;">
+                <form action="/editaragen" method="POST">
+                    <%  agendamentos.forEach(function(agendamento){ %>
+                    <div class="row mt-5">
+                        <div class="form-group col-lg-4">
+                            <label for="paciente">Paciente:</label>
+                            <select class="form-control" name="paciente" id="paciente" value="<%=agendamento.paciente%>">
+                                <%  pacientes.forEach(function(paciente){ %>
+                                <option value="<%=paciente.nome%>"><%=paciente.nome%> (<%=paciente.cpf%>)</option>
+                                <% }) %>
+                            </select>                             
+                        </div>
+                        <div class="form-group col-lg-4" >
+                            <label for="telefone">Telefone:</label>
+                            <input class="form-control" type="text" value="<%=agendamento.telefone%>" id="telefone" name="telefone" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);">                                 
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label for="medico">Medico:</label>
+                            <select class="form-control" name="medico" id="medico" value="<%=agendamento.medico%>">
+                                <%  funcionarios.forEach(function(funcionario){ %>
+                                <option value="<%=funcionario.nome%>"><%=funcionario.nome%> (<%=funcionario.funcao%>)</option>
+                                <% }) %>
+                            </select>                             
+                        </div>
+                    </div>
+
+                    <div class="row mt-5">
+                        <div class="form-group col-lg-4">
+                            <label for="motivo">Motivo:</label>
+                            <input class="form-control" type="text" name="motivo" id="motivo" value="<%=agendamento.motivo%>">
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <label for="hora">Hora:</label>
+                            <input class="form-control" type="time" name="hora" id="hora" value="<%=agendamento.hora%>">
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <label for="data">Data:</label>
+                            <input class="form-control" type="date" name="data" id="data" value="<%=agendamento.data%>">
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="idMudar" id="idMudar" value="<%=agendamento.id%>">
+                    <button type="submit" class="btn btn-primary mt-5">Salvar</button>
+                    <a href="/agendamentos" class="btn btn-warning mt-5">Voltar</a>
+                    <a href="/agendamentos/deletar/<%=agendamento.id%>" class="btn btn-danger mt-5">Deletar</a>
+                    <% }) %>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function mascara(i){
+   
+             var v = i.value;
+   
+            if(isNaN(v[v.length-1])){
+                 i.value = v.substring(0, v.length-1);
+                return;
+             }
+   
+            i.setAttribute("maxlength", "14");
+             if (v.length == 3 || v.length == 7) i.value += ".";
+             if (v.length == 11) i.value += "-";
+         }
+
+         function mask(o, f) {
+            setTimeout(function() {
+                var v = mphone(o.value);
+                if (v != o.value) {
+                o.value = v;
+                }
+            }, 1);
+        }
+
+        function mphone(v) {
+            var r = v.replace(/\D/g, "");
+            r = r.replace(/^0/, "");
+            if (r.length > 10) {
+                r = r.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
+            } else if (r.length > 5) {
+                r = r.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+            } else if (r.length > 2) {
+                r = r.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
+            } else {
+                r = r.replace(/^(\d*)/, "($1");
+            }
+            return r;
+        }      
+    </script>
+</section>
+
+<%- include("partials/footer") %>

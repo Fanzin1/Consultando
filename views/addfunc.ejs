@@ -1,0 +1,92 @@
+<%- include("partials/header") %>
+
+<section class="geral" style="height: 100vh;">
+    <%- include("partials/sidemenu") %>
+
+    <div class="container-fluid" style="padding: 25px 65px;">
+        <div class="row" style="margin-top: 100px;">
+            <div class="col-lg-12"style="background-color: rgb(241, 241, 241); padding: 25px; border-radius: 15px;">
+                <form action="/addfunc" method="POST">
+                    <div class="row mt-5">
+                        <div class="form-group col-lg-4">
+                            <label for="nome">Nome:</label>
+                            <input class="form-control" type="text" name="nome" id="nome">                                    
+                        </div>
+                        <div class="form-group col-lg-3" >
+                            <label for="nascimento">Data de nascimento:</label>
+                            <input class="form-control" type="date" name="nascimento" id="nascimento">                                    
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <label for="nacionalidade">Nacionalidade:</label>
+                            <input class="form-control" type="text" name="nacionalidade" id="nacionalidade">                                    
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <label for="admissao">Data admissão</label>
+                            <input class="form-control" type="date" name="admissao" id="admissao">                                    
+                        </div>
+                    </div>
+
+                    <div class="row mt-5">
+                        <div class="form-group col-lg-2">
+                            <label for="funcao">Função:</label>
+                            <input class="form-control" type="text" name="funcao" id="funcao">
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <label for="remuneracao">Remuneração:</label>
+                            <input class="form-control" type="number" name="remuneracao" id="remuneracao">
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <label for="cpf">CPF:</label>
+                            <input oninput="mascara(this)" class="form-control" type="text" name="cpf" id="cpf">
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <label for="rg">RG:</label>
+                            <input oninput="MascaraRg(this)" class="form-control" type="text" name="rg" id="rg">
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <label for="periodo">Periodo:</label>
+                            <select class="form-control" name="periodo" id="periodo">
+                                <option value="Matutino">Matutino</option>
+                                <option value="Vespertino">Vespertino</option>
+                                <option value="Noturno">Noturno</option>
+                                <option value="Sembrol">Sembrol</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <label for="atendimento">Atendimentos Diario:</label>
+                            <input class="form-control" type="number" name="atendimento" id="atendimento">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-5">Adicionar</button>
+                    <a href="/funcionarios" class="btn btn-danger mt-5">Voltar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function mascara(i){
+   
+             var v = i.value;
+   
+            if(isNaN(v[v.length-1])){
+                 i.value = v.substring(0, v.length-1);
+                return;
+             }
+   
+            i.setAttribute("maxlength", "14");
+             if (v.length == 3 || v.length == 7) i.value += ".";
+             if (v.length == 11) i.value += "-";
+         }
+
+        function MascaraRg(v0,errChar='?'){
+            const v = v0.toUpperCase().replace(/[^\dX]/g,'');
+            return (v.length==8 || v.length==9)?
+            v.replace(/^(\d{1,2})(\d{3})(\d{3})([\dX])$/,'$1.$2.$3-$4'):
+            (errChar+v0);
+        }        
+    </script>
+</section>
+
+<%- include("partials/footer") %>

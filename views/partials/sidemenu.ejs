@@ -1,0 +1,87 @@
+<div class="navtop" style="box-shadow: 2px 2px 5px rgb(184, 183, 183);">
+    <div class="container">
+        <nav class="navbar navbar-dark navbar-expand-md justify-content-between">
+            <a class="navbar-brand" href="/">Consultando</a>
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i>&nbsp&nbspSair</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div onclick="mostrar()" id="open" class="icon" style="position: absolute;">
+    <button style="border: none; background-color: transparent; outline: none;"><i style="color: white;" class="fas fa-bars"></i></button>
+</div>
+
+<div id="sidebar-text" style="z-index: 99;">
+    <div onclick="terminar()" id="close" class="icon" style="margin-left: 175px;">
+        <button style="border: none; background-color: transparent; outline: none;"><i style="color: white;" class="fas fa-times"></i></button>
+    </div>
+
+
+    <ul id="menuLista">
+        <li>
+            <a href="/home"><i class="fas fa-house-user"></i>&nbsp&nbsp&nbsp&nbspínicio</a>
+        </li>
+        <li>
+            <a href="/pacientes"><i class="fas fa-hospital-user"></i>&nbsp&nbsp&nbsp&nbspPacientes</a>
+        </li>
+        <li>
+            <a href="/agendamentos"><i class="fas fa-paste"></i>&nbsp&nbsp&nbsp&nbspAgendamentos</a>
+        </li>
+        <li>
+            <a href="/funcionarios"><i class="fas fa-user-md"></i>&nbsp&nbsp&nbsp&nbspFuncionários</a>
+        </li>
+    </ul>
+</div>
+
+<script>
+    
+    var barra = document.getElementById("sidebar-text");
+    var lista = document.getElementById("menuLista");
+    var fechar = document.getElementById("close");
+
+    function mostrar(){
+        var ml = 0;
+
+        barra.style.padding = "15px"
+        barra.style.marginLeft = 0;
+        var intervalo = setInterval(function(){
+            console.log(ml)
+            if(ml < 250){
+                ml = ml + 10;
+                barra.style.width = ml + "px";
+            }
+            else{
+                clearInterval(intervalo);
+                lista.style.display = "inline-block"
+                fechar.style.display = "inline-block"
+            }
+        }, 10);
+
+        document.getElementById("open").style.display = "none";
+    }
+
+    function terminar(){
+        fechar.style.display = "none";
+        lista.style.display = "none";
+        var ml = 250;
+        barra.style.marginLeft = 0;
+        var intervalo = setInterval(function(){
+            console.log(ml)
+            if(ml >= 0){
+                ml = ml - 10;
+                console.log(ml)
+                barra.style.width = ml + "px";
+            }
+            else{
+                clearInterval(intervalo);
+                document.getElementById("open").style.display = "inline-block";
+                barra.style.padding = 0;
+            }
+        }, 10);
+    }
+</script>

@@ -1,0 +1,170 @@
+<%- include("partials/header") %>
+
+<section class="geral" style="height: 100vh">
+    <%- include("partials/sidemenu") %>
+
+    <div class="container-fluid" style="padding: 25px 65px;">
+        <div class="row" style="margin-top: 100px;">
+            <div class="col-lg-12"style="background-color: rgb(241, 241, 241); padding: 25px; border-radius: 15px;">
+                <form action="/addpac" method="POST">
+                    <div class="row mt-5">
+                        <div class="form-group col-lg-4">
+                            <label for="nome">Nome:</label>
+                            <input class="form-control" type="text" name="nome" id="nome">                                    
+                        </div>
+                        <div class="form-group col-lg-3" >
+                            <label for="nascimento">Data de nascimento:</label>
+                            <input class="form-control" type="date" name="nascimento" id="nascimento">                                    
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <label for="nacionalidade">Nacionalidade:</label>
+                            <input class="form-control" type="text" name="nacionalidade" id="nacionalidade">                                    
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <label for="genero">Gênero:</label>
+                            <select class="form-control" name="genero" id="genero">
+                                <option value="masculino">Masculino</option>
+                                <option value="feminino">Feminino</option>
+                            </select>                        
+                        </div>
+                    </div>
+
+                    <div class="row mt-5">
+                        <div class="form-group col-lg-2">
+                            <label for="cep">CEP:</label>
+                            <input name="cep" type="text" id="cep" class="mascCEP form-control" value="" size="10" maxlength="9"
+                            onblur="pesquisacep(this.value);" />
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <label for="rua">Rua:</label>
+                            <input class="form-control" type="text" name="rua" id="rua">
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <label for="bairro">Bairro:</label>
+                            <input class="form-control" type="text" name="bairro" id="bairro">
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <label for="cidade">Cidade:</label>
+                            <input class="form-control" type="text" name="cidade" id="cidade">
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <label for="uf">Estado:</label>
+                            <input class="form-control" type="text" name="uf" id="uf">
+                        </div>
+                        <div class="form-group col-lg-1">
+                            <label for="numero">Número:</label>
+                            <input type="number" class="form-control" id="numero" name="numero">
+                        </div>
+                        <div class="form-group col-lg-1">
+                            <label for="complemento">Complemento:</label>
+                            <input type="text" class="form-control" id="complemento" name="complemento">
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="form-group col-lg-3">
+                            <label for="email">E-mail:</label>
+                            <input class="form-control" type="email" name="email" id="email">
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <label for="telefone">Telefone:</label>
+                            <input class="form-control" type="text" id="telefone" name="telefone" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);">
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <label for="cpf">CPF:</label>
+                            <input oninput="mascara(this)" class="form-control" type="text" name="cpf" id="cpf">
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-5">Adicionar</button>
+                    <a href="/pacientes" class="btn btn-danger mt-5">Voltar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function mascara(i){
+   
+             var v = i.value;
+   
+            if(isNaN(v[v.length-1])){
+                 i.value = v.substring(0, v.length-1);
+                return;
+             }
+   
+            i.setAttribute("maxlength", "14");
+             if (v.length == 3 || v.length == 7) i.value += ".";
+             if (v.length == 11) i.value += "-";
+        }
+
+        function limpa_formulário_cep() {
+        document.getElementById('cep').value=("");
+        document.getElementById('rua').value=("");
+        document.getElementById('bairro').value=("");
+        document.getElementById('cidade').value=("");
+        document.getElementById('uf').value=("");
+        }
+
+        function meu_callback(conteudo) {
+            if (!("erro" in conteudo)) {
+                document.getElementById('rua').value=(conteudo.logradouro);
+                document.getElementById('bairro').value=(conteudo.bairro);
+                document.getElementById('cidade').value=(conteudo.localidade);
+                document.getElementById('uf').value=(conteudo.uf);
+            }
+            else {
+                limpa_formulário_cep();
+                alert("CEP não encontrado.");
+            }
+        }
+
+        function pesquisacep(valor) {
+            var cep = valor.replace(/\D/g, '');
+
+            if (cep != "") {
+                var validacep = /^[0-9]{8}$/;
+                if(validacep.test(cep)) {
+
+                    document.getElementById('cep').value = cep.substring(0,5)
+                    +"-"
+                    +cep.substring(5);
+                    var script = document.createElement('script');
+                    script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+                    console.log(script.src);
+                    document.body.appendChild(script);
+                }
+                else {
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            }
+        };
+        
+        function mask(o, f) {
+            setTimeout(function() {
+                var v = mphone(o.value);
+                if (v != o.value) {
+                o.value = v;
+                }
+            }, 1);
+        }
+
+        function mphone(v) {
+            var r = v.replace(/\D/g, "");
+            r = r.replace(/^0/, "");
+            if (r.length > 10) {
+                r = r.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
+            } else if (r.length > 5) {
+                r = r.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+            } else if (r.length > 2) {
+                r = r.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
+            } else {
+                r = r.replace(/^(\d*)/, "($1");
+            }
+            return r;
+        }
+    </script>
+</section>
+
+<%- include("partials/footer") %>
